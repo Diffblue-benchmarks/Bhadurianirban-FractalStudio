@@ -20,7 +20,7 @@
         <p:panel id="termMetaDataBlk">
             <h:form id="termMetaData" >
                 <p:button styleClass="black-button" value="Back" outcome="Landing" />
-                <p:button styleClass="blue-button" style="margin-bottom:1%;"  value="Import" rendered="#{edgeListList.metaDoesNotExistForTerm}"/>
+                <p:button styleClass="blue-button" style="margin-bottom:1%;"  value="Import" outcome="VGGraphList" rendered="#{edgeListList.metaDoesNotExistForTerm}"/>
                
                 <p:dataTable var="termMetaData" value="#{edgeListList.screenTermInstanceList}" reflow="true" paginator="true" rows="10" >
                     <p:column  headerText="#{edgeListList.termScreenFieldsDesc['name']}" >

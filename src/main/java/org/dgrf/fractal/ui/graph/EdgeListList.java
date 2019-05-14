@@ -19,6 +19,7 @@ import org.dgrf.cms.dto.TermDTO;
 import org.dgrf.cms.dto.TermInstanceDTO;
 import org.dgrf.cms.dto.TermMetaDTO;
 import org.dgrf.cms.ui.login.CMSClientAuthCredentialValue;
+import org.dgrf.fractal.constants.FractalConstants;
 import org.dgrf.fractal.core.client.FractalCoreClient;
 import org.dgrf.fractal.core.dto.FractalDTO;
 import org.dgrf.fractal.response.FractalResponseCode;
@@ -40,7 +41,9 @@ public class EdgeListList implements Serializable {
     private Map<String, String> termScreenFieldsDesc;
     private String termName;
     private Map<String, Object> selectedMetaData;
-
+    
+    private String psvgTermSlug = FractalConstants.TERM_SLUG_PSVG_CALC;
+    
     public EdgeListList() {
     }
 
@@ -146,6 +149,14 @@ public class EdgeListList implements Serializable {
 
     public void setSelectedMetaData(Map<String, Object> selectedMetaData) {
         this.selectedMetaData = selectedMetaData;
+    }
+
+    public String getPsvgTermSlug() {
+        return psvgTermSlug;
+    }
+
+    public void setPsvgTermSlug(String psvgTermSlug) {
+        this.psvgTermSlug = psvgTermSlug;
     }
 
 }
