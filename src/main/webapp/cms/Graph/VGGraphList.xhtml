@@ -37,8 +37,11 @@
 
 
                 </p:dataTable>
+                <p:outputLabel value="Name"></p:outputLabel>
+                <p:inputText value="#{importEdgeListFromVG.graphName}"></p:inputText>
                 <div class="card">
                     <p:button styleClass="black-button" style="margin-bottom:10px;" value="Back" outcome="EdgeList" />
+                    <p:commandButton styleClass="black-button" style="margin-bottom:10px;" value="Back" action="#{importEdgeListFromVG.importVGIntoGraph()}" />
                 </div>
             </h:form>
 

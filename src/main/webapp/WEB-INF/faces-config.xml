@@ -974,6 +974,16 @@
                     <value>#{importEdgeListFromVG.graphTermSlug}</value>  
                 </view-param>  
             </redirect>   
+        </navigation-case> 
+        <navigation-case>
+            <from-outcome>VGGraphList</from-outcome>
+            <to-view-id>/cms/Graph/VGGraphList.xhtml</to-view-id>
+            <redirect include-view-params="true">  
+                <view-param>  
+                    <name>termslug</name>  
+                    <value>#{importEdgeListFromVG.termSlug}</value>  
+                </view-param>  
+            </redirect>   
         </navigation-case>        
     </navigation-rule>    
 </faces-config>
