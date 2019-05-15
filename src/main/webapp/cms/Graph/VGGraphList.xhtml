@@ -19,12 +19,12 @@
 
         <p:panel id="termMetaDataBlk">
             <h:form id="termMetaData" >
-                <p:button styleClass="black-button" style="margin-bottom:10px;" value="Back" outcome="Landing" />
+
                 <p:dataTable var="termMetaData" value="#{importEdgeListFromVG.screenTermInstanceList}" reflow="true" selection="#{importEdgeListFromVG.selectedVGGraph}" rowKey="#{termMetaData['termInstanceSlug']}" >
                     <f:facet name="header">
                         Select PSVG Parameter
                     </f:facet>
-                    <p:column headerText="Gheu" selectionMode="single" style="width:16px;text-align:center" rendered="#{termMetaData['queued'] eq 'No'}"/>
+                    <p:column headerText="Gheu" selectionMode="single" style="width:16px;text-align:center" />
                     <p:column headerText="#{importEdgeListFromVG.instanceMetaKeys[0].label}"  sortBy="#{termMetaData[importEdgeListFromVG.instanceMetaKeys[0].metaKey]}">
                         <h:outputText value="#{termMetaData[importEdgeListFromVG.instanceMetaKeys[0].metaKey]}" />
                     </p:column>
@@ -37,6 +37,9 @@
 
 
                 </p:dataTable>
+                <div class="card">
+                    <p:button styleClass="black-button" style="margin-bottom:10px;" value="Back" outcome="EdgeList" />
+                </div>
             </h:form>
 
 

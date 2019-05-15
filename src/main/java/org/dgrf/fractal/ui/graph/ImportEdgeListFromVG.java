@@ -6,6 +6,7 @@
 package org.dgrf.fractal.ui.graph;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.inject.Named;
@@ -19,6 +20,7 @@ import org.dgrf.cms.ui.login.CMSClientAuthCredentialValue;
 import org.dgrf.cms.ui.terminstance.TermInstanceUtil;
 import org.dgrf.cms.ui.terminstance.TermMetaKeyLabels;
 import org.dgrf.fractal.constants.FractalConstants;
+import org.dgrf.fractal.termmeta.PSVGResultsMeta;
 
 /**
  *
@@ -33,6 +35,7 @@ public class ImportEdgeListFromVG implements Serializable{
     private List<TermMetaKeyLabels> instanceMetaKeys;
     private String termName;
     private Map<String, Object> selectedVGGraph;
+    private String graphTermSlug = FractalConstants.TERM_SLUG_GRAPH;
     /**
      * Creates a new instance of ImportEdgeListFromVG
      */
@@ -62,9 +65,18 @@ public class ImportEdgeListFromVG implements Serializable{
         //populate data from grid
         termInstanceDTO.setTermSlug(termSlug);
         termInstanceDTO = mts.getTermInstanceList(termInstanceDTO);
-
-        screenTermInstanceList = termInstanceDTO.getTermInstanceList();
-
+        List<Map<String, Object>> tempScreenTermInstanceList =  termInstanceDTO.getTermInstanceList();
+        screenTermInstanceList = new ArrayList<>();
+        for (int i=0;i<tempScreenTermInstanceList.size();i++) {
+            Map<String, Object> tempScreenTermInstance = tempScreenTermInstanceList.get(i);
+            if (((String)tempScreenTermInstance.get(PSVGResultsMeta.QUEUED)).equals("No")) {
+                screenTermInstanceList.add(tempScreenTermInstance);
+            }
+        }
+        
+        
+        
+        
         metaDoesNotExistForTerm = !termScreenFields.isEmpty();
         instanceMetaKeys = TermInstanceUtil.prepareMetaKeyList(termScreenFields);
 
@@ -117,6 +129,14 @@ public class ImportEdgeListFromVG implements Serializable{
 
     public void setSelectedVGGraph(Map<String, Object> selectedVGGraph) {
         this.selectedVGGraph = selectedVGGraph;
+    }
+
+    public String getGraphTermSlug() {
+        return graphTermSlug;
+    }
+
+    public void setGraphTermSlug(String graphTermSlug) {
+        this.graphTermSlug = graphTermSlug;
     }
     
 }
