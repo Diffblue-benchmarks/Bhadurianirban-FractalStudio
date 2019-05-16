@@ -37,11 +37,20 @@
 
 
                 </p:dataTable>
-                <p:outputLabel value="Name"></p:outputLabel>
-                <p:inputText value="#{importEdgeListFromVG.graphName}"></p:inputText>
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+
+                    <h:outputText value="Name" />
+                    <p:inputText value="#{importEdgeListFromVG.graphName}"></p:inputText>
+
+                    <h:outputText value="Edge Length Type" />
+                    <p:selectOneButton value="#{importEdgeListFromVG.edgeLengthType}">
+                        <f:selectItem itemLabel="Real" itemValue="real" />
+                        <f:selectItem itemLabel="Horizonal" itemValue="horizontal" />
+                    </p:selectOneButton>
+                </h:panelGrid>
                 <div class="card">
-                    <p:button styleClass="black-button" style="margin-bottom:10px;" value="Back" outcome="EdgeList" />
-                    <p:commandButton styleClass="black-button" style="margin-bottom:10px;" value="Back" action="#{importEdgeListFromVG.importVGIntoGraph()}" />
+                    <p:button styleClass="black-button" style="margin-bottom:10px;" value="Back" outcome="EdgeListList" />
+                    <p:commandButton styleClass="black-button" style="margin-bottom:10px;" value="Import" action="#{importEdgeListFromVG.importVGIntoGraph()}" />
                 </div>
             </h:form>
 

@@ -45,6 +45,7 @@ public class ImportEdgeListFromVG implements Serializable {
     private Map<String, Object> selectedVGGraph;
     private String graphTermSlug = FractalConstants.TERM_SLUG_GRAPH;
     private String graphName;
+    private String edgeLengthType;
 
     /**
      * Creates a new instance of ImportEdgeListFromVG
@@ -106,6 +107,7 @@ public class ImportEdgeListFromVG implements Serializable {
         fractalDTO.setImportFromVGInstanceSlug(importFromVGSlug);
         Map<String, Object> graphTermInstance = new HashMap<>();
         graphTermInstance.put(GraphMeta.NAME, graphName);
+        graphTermInstance.put("edgeLengthTypeForImport", edgeLengthType);
         fractalDTO.setFractalTermInstance(graphTermInstance);
         FractalCoreClient fractalCoreClient = new FractalCoreClient();
         fractalDTO = fractalCoreClient.importPSVGGraph(fractalDTO);
@@ -189,6 +191,14 @@ public class ImportEdgeListFromVG implements Serializable {
 
     public void setGraphTermSlug(String graphTermSlug) {
         this.graphTermSlug = graphTermSlug;
+    }
+
+    public String getEdgeLengthType() {
+        return edgeLengthType;
+    }
+
+    public void setEdgeLengthType(String edgeLengthType) {
+        this.edgeLengthType = edgeLengthType;
     }
 
 }

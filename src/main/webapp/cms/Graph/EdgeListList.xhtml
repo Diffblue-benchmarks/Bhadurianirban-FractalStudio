@@ -41,7 +41,7 @@
         </p:panel>
         <p:dialog header="Sure to delete" widgetVar="delete" minHeight="50">
             <h:form id="deleteTermMetaData">
-                <p:commandButton styleClass="red-button" update=":msgdialog" oncomplete="PF('bui').show();PF('delete').hide()" value="Delete" action="#{edgeListList.deleteDataSeries()}">
+                <p:commandButton styleClass="red-button" update=":msgdialog" oncomplete="PF('bui').show();PF('delete').hide()" value="Delete" action="#{edgeListList.deleteGraph()}">
                     <f:setPropertyActionListener value="#{edgeListList.selectedMetaData}" target="#{edgeListList.selectedMetaData}" />
                 </p:commandButton>
             </h:form>
