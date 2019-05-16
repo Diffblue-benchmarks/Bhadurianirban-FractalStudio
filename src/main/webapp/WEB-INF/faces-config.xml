@@ -67,7 +67,7 @@
                 </view-param>                  
             </redirect>  
         </navigation-case>
-          <!--    Browse from child term instance list in case there is only one term meta as child-->
+        <!--    Browse from child term instance list in case there is only one term meta as child-->
         <navigation-case>
             <from-outcome>ChildTermInstanceList</from-outcome>
             <to-view-id>/cms/browse/ChildTermInstanceList.xhtml</to-view-id>
@@ -225,7 +225,7 @@
             </redirect>
         </navigation-case>        
     </navigation-rule>
-        <!--    Navigation cases for TermInstance Add-->
+    <!--    Navigation cases for TermInstance Add-->
     <navigation-rule>
         <from-view-id>/cms/TermInstance/TermInstanceAdd.xhtml</from-view-id>
         <navigation-case>
@@ -960,7 +960,17 @@
                     <value>#{edgeListList.psvgTermSlug}</value>  
                 </view-param>  
             </redirect>  
-        </navigation-case>        
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>EdgeListList</from-outcome>
+            <to-view-id>/cms/Graph/EdgeListList.xhtml</to-view-id>
+            <redirect include-view-params="true">  
+                <view-param>  
+                    <name>termslug</name>  
+                    <value>#{edgeListList.termSlug}</value>  
+                </view-param>  
+            </redirect>  
+        </navigation-case>          
     </navigation-rule> 
     <!--    Navigation cases for  Import VG Edges List-->
     <navigation-rule>
@@ -981,7 +991,7 @@
             <redirect include-view-params="true">  
                 <view-param>  
                     <name>termslug</name>  
-                    <value>#{importEdgeListFromVG.termSlug}</value>  
+                    <value>#{importEdgeListFromVG.graphTermSlug}</value>  
                 </view-param>  
             </redirect>   
         </navigation-case>        

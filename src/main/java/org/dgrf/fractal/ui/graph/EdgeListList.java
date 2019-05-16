@@ -77,15 +77,15 @@ public class EdgeListList implements Serializable {
 
     }
 
-    public String deleteDataSeries() {
+    public String deleteGraph() {
         FacesMessage message;
         FractalCoreClient mts = new FractalCoreClient();
         FractalDTO fractalDTO = new FractalDTO();
         fractalDTO.setAuthCredentials(CMSClientAuthCredentialValue.AUTH_CREDENTIALS);
-        String selectedTermInstanceSlug = (String) selectedMetaData.get(CMSConstants.TERM_INSTANCE_SLUG);
-        fractalDTO.setDataSeriesSlug(selectedTermInstanceSlug);
+        //String selectedTermInstanceSlug = (String) selectedMetaData.get(CMSConstants.TERM_INSTANCE_SLUG);
+        fractalDTO.setFractalTermInstance(selectedMetaData);
         //delete dataseries metadata
-        fractalDTO = mts.deleteDataseries(fractalDTO);
+        fractalDTO = mts.deleteGraph(fractalDTO);
         if (fractalDTO.getResponseCode() == FractalResponseCode.SUCCESS) {
             DGRFResponseMessage responseMessage = new DGRFResponseMessage();
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Success", responseMessage.getResponseMessage(fractalDTO.getResponseCode()));
