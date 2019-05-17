@@ -88,6 +88,7 @@ public class ImportEdgeListFromVG implements Serializable {
 
         metaDoesNotExistForTerm = !termScreenFields.isEmpty();
         instanceMetaKeys = TermInstanceUtil.prepareMetaKeyList(termScreenFields);
+        edgeLengthType = "real";
 
     }
 
@@ -104,10 +105,11 @@ public class ImportEdgeListFromVG implements Serializable {
         String importFromVGSlug = (String) selectedVGGraph.get(CMSConstants.TERM_INSTANCE_SLUG);
         FractalDTO fractalDTO = new FractalDTO();
         fractalDTO.setAuthCredentials(CMSClientAuthCredentialValue.AUTH_CREDENTIALS);
-        fractalDTO.setImportFromVGInstanceSlug(importFromVGSlug);
+        
         Map<String, Object> graphTermInstance = new HashMap<>();
         graphTermInstance.put(GraphMeta.NAME, graphName);
         graphTermInstance.put("edgeLengthTypeForImport", edgeLengthType);
+        graphTermInstance.put("importFromVGInstanceSlug", importFromVGSlug);
         fractalDTO.setFractalTermInstance(graphTermInstance);
         FractalCoreClient fractalCoreClient = new FractalCoreClient();
         fractalDTO = fractalCoreClient.importPSVGGraph(fractalDTO);
