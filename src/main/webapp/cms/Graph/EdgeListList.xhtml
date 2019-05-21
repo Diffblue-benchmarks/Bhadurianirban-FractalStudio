@@ -26,7 +26,11 @@
                     <p:column  headerText="#{edgeListList.termScreenFieldsDesc['name']}" >
                         <h:outputText value="#{termMetaData['name']}" />
                     </p:column>
-                    
+                    <p:column headerText="View">
+                        <p:commandButton styleClass="blue-button" icon="fa fa-bar-chart" title="View" action="#{edgeListList.gotoNetworkStatsOptions()}" >
+                            <f:setPropertyActionListener value="#{termMetaData}" target="#{edgeListList.selectedMetaData}" />
+                        </p:commandButton>
+                    </p:column>
                     
                     <p:column headerText="Delete">
                         <p:commandButton styleClass="red-button" update=":deleteTermMetaData" oncomplete="PF('delete').show()" icon="fa fa-trash"  title="Delete" rendered="#{termMetaData['allowDelete']}">

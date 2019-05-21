@@ -77,6 +77,10 @@ public class EdgeListList implements Serializable {
 
     }
 
+    public String gotoNetworkStatsOptions() {
+        return "NetworkStatsOptions";
+    }
+    
     public String deleteGraph() {
         FacesMessage message;
         FractalCoreClient mts = new FractalCoreClient();

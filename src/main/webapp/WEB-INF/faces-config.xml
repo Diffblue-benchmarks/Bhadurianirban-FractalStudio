@@ -970,7 +970,17 @@
                     <value>#{edgeListList.termSlug}</value>  
                 </view-param>  
             </redirect>  
-        </navigation-case>          
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>NetworkStatsOptions</from-outcome>
+            <to-view-id>/cms/Graph/NetworkStatsOptions.xhtml</to-view-id>
+            <redirect include-view-params="true">  
+                <view-param>  
+                    <name>terminstanceslug</name>  
+                    <value>#{edgeListList.selectedMetaData['termInstanceSlug']}</value>  
+                </view-param>  
+            </redirect>  
+        </navigation-case>                
     </navigation-rule> 
     <!--    Navigation cases for  Import VG Edges List-->
     <navigation-rule>
@@ -995,5 +1005,29 @@
                 </view-param>  
             </redirect>   
         </navigation-case>        
-    </navigation-rule>    
+    </navigation-rule> 
+<!--    Navigation cases for  Network Stats Options -->
+    <navigation-rule>
+        <from-view-id>/cms/Graph/NetworkStatsOptions.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>NetworkStatsOptions</from-outcome>
+            <to-view-id>/cms/Graph/NetworkStatsOptions.xhtml</to-view-id>
+            <redirect include-view-params="true">  
+                <view-param>  
+                    <name>terminstanceslug</name>  
+                    <value>#{networkStatsOptions.termInstanceSlug}</value>  
+                </view-param>  
+            </redirect>   
+        </navigation-case> 
+        <navigation-case>
+            <from-outcome>NetworkStatsList</from-outcome>
+            <to-view-id>/cms/Graph/NetworkStatsList.xhtml</to-view-id>
+            <redirect include-view-params="true">  
+                <view-param>  
+                    <name>termslug</name>  
+                    <value>#{networkStatsOptions.networtStatsTermSlug}</value>  
+                </view-param>  
+            </redirect>   
+        </navigation-case>        
+    </navigation-rule>        
 </faces-config>
