@@ -64,7 +64,7 @@ public class NetworkStatsOptions implements Serializable {
         networkStatsTermInstance.put(CMSConstants.TERM_INSTANCE_SLUG, "Undecided");
         networkStatsTermInstance.put(NetworkStatsMeta.GRAPH, termInstanceSlug);
         networkStatsTermInstance.put("calctype", selectedNetworkStatsOption);
-        
+        fractalDTO.setAuthCredentials(CMSClientAuthCredentialValue.AUTH_CREDENTIALS);
         fractalDTO.setFractalTermInstance(networkStatsTermInstance);
         FractalCoreClient fcc = new FractalCoreClient();
         fractalDTO = fcc.calculateNetworkStats(fractalDTO);
@@ -128,6 +128,14 @@ public class NetworkStatsOptions implements Serializable {
 
     public void setNetwortStatsTermSlug(String networtStatsTermSlug) {
         this.networtStatsTermSlug = networtStatsTermSlug;
+    }
+
+    public String getTermSlug() {
+        return termSlug;
+    }
+
+    public void setTermSlug(String termSlug) {
+        this.termSlug = termSlug;
     }
 
 }
