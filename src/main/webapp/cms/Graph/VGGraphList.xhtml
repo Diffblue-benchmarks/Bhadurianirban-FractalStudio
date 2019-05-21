@@ -8,7 +8,7 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <ui:define name="content">
-        <p:growl id="growl" globalOnly="true" sticky="true" showDetail="true" life="5" autoUpdate="true" />
+        
         <f:metadata>
             <f:viewParam name="termslug" value="#{importEdgeListFromVG.termSlug}"></f:viewParam>
             <f:viewAction action="#{importEdgeListFromVG.fillTermMetaData()}" />
@@ -19,7 +19,7 @@
 
         <p:panel id="termMetaDataBlk">
             <h:form id="termMetaData" >
-                
+                <p:growl id="growl"  sticky="true" showDetail="true" life="5"  />
                 <p:dataTable var="termMetaData" value="#{importEdgeListFromVG.screenTermInstanceList}" reflow="true" selection="#{importEdgeListFromVG.selectedVGGraph}" rowKey="#{termMetaData['termInstanceSlug']}" >
                     <f:facet name="header">
                         Select PSVG Parameter
@@ -38,7 +38,7 @@
 
                 </p:dataTable>
                 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-                    <p:growl id="growl" globalOnly="true" sticky="true" showDetail="true" life="5"  />
+                    
                     <h:outputText value="Name" />
                     <p:inputText value="#{importEdgeListFromVG.graphName}" required="true"></p:inputText>
 
