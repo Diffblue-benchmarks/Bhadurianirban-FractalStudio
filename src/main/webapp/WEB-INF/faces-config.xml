@@ -1044,12 +1044,12 @@
     <navigation-rule>
         <from-view-id>/cms/Graph/NetworkStatsList.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>TermInstanceList</from-outcome>
+            <from-outcome>NetworkStatsList</from-outcome>
             <to-view-id>/cms/Graph/NetworkStatsList.xhtml</to-view-id>
             <redirect include-view-params="true">  
                 <view-param>  
                     <name>termslug</name>  
-                    <value>#{termInstanceList.termSlug}</value>  
+                    <value>#{networkStatsList.termSlug}</value>  
                 </view-param>  
             </redirect>   
         </navigation-case> 

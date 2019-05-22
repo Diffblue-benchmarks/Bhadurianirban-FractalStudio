@@ -10,11 +10,11 @@
     <ui:define name="content">
         <p:growl id="growl" globalOnly="true" sticky="true" showDetail="true" life="5" autoUpdate="true" />
         <f:metadata>
-            <f:viewParam name="termslug" value="#{termInstanceList.termSlug}"></f:viewParam>
-            <f:viewAction action="#{termInstanceList.fillTermMetaData()}" />
+            <f:viewParam name="termslug" value="#{networkStatsList.termSlug}"></f:viewParam>
+            <f:viewAction action="#{networkStatsList.fillTermMetaData()}" />
         </f:metadata>
         <div class="card">
-            <h1>View/Maintain #{termInstanceList.termName}</h1>
+            <h1>View/Maintain #{networkStatsList.termName}</h1>
         </div>
 
         <p:panel id="termMetaDataBlk">
@@ -22,27 +22,27 @@
 
                 
                 
-                <p:dataTable var="termMetaData" value="#{termInstanceList.screenTermInstanceList}" reflow="true" paginator="true" rows="10" >
-                    <p:column headerText="#{termInstanceList.instanceMetaKeys[0].label}"  sortBy="#{termMetaData[termInstanceList.instanceMetaKeys[0].metaKey]}">
-                        <h:outputText value="#{termMetaData[termInstanceList.instanceMetaKeys[0].metaKey]}" />
+                <p:dataTable var="termMetaData" value="#{networkStatsList.screenTermInstanceList}" reflow="true" paginator="true" rows="10" >
+                    <p:column headerText="#{networkStatsList.instanceMetaKeys[0].label}"  sortBy="#{termMetaData[networkStatsList.instanceMetaKeys[0].metaKey]}">
+                        <h:outputText value="#{termMetaData[networkStatsList.instanceMetaKeys[0].metaKey]}" />
                     </p:column>
-                    <p:column headerText="#{termInstanceList.instanceMetaKeys[1].label}"  rendered="#{termInstanceList.instanceMetaKeys.size() > 1}" >
-                        <h:outputText value="#{termMetaData[termInstanceList.instanceMetaKeys[1].metaKey]}" rendered="#{termInstanceList.instanceMetaKeys.size() > 1}"/>
+                    <p:column headerText="#{networkStatsList.instanceMetaKeys[1].label}"  rendered="#{networkStatsList.instanceMetaKeys.size() > 1}" >
+                        <h:outputText value="#{termMetaData[networkStatsList.instanceMetaKeys[1].metaKey]}" rendered="#{networkStatsList.instanceMetaKeys.size() > 1}"/>
                     </p:column>
-                    <p:column headerText="#{termInstanceList.instanceMetaKeys[2].label}"  rendered="#{termInstanceList.instanceMetaKeys.size() > 2}">
-                        <h:outputText value="#{termMetaData[termInstanceList.instanceMetaKeys[2].metaKey]}" />
+                    <p:column headerText="#{networkStatsList.instanceMetaKeys[2].label}"  rendered="#{networkStatsList.instanceMetaKeys.size() > 2}">
+                        <h:outputText value="#{termMetaData[networkStatsList.instanceMetaKeys[2].metaKey]}" />
                     </p:column>
 
                     <p:column headerText="View">
                         <p:commandButton styleClass="button" icon="fa fa-eye" update=":termInstanceDetail" oncomplete="PF('termInstanceDialog').show()" title="View Detail">
-                            <f:setPropertyActionListener value="#{termMetaData}" target="#{termInstanceList.selectedMetaData}" />
+                            <f:setPropertyActionListener value="#{termMetaData}" target="#{networkStatsList.selectedMetaData}" />
                         </p:commandButton>
                     </p:column>
 
                    
                     <p:column headerText="Delete">
                         <p:commandButton styleClass="delete-button" update=":deleteTermMetaData" oncomplete="PF('delete').show()" icon="fa fa-trash"  title="Delete" rendered="#{termMetaData['allowDelete']}">
-                            <f:setPropertyActionListener value="#{termMetaData}" target="#{termInstanceList.selectedMetaData}" />
+                            <f:setPropertyActionListener value="#{termMetaData}" target="#{networkStatsList.selectedMetaData}" />
                         </p:commandButton>
                         <h:outputText rendered="#{!termMetaData['allowDelete']}" value="Linked Data exists."/>
                     </p:column>
@@ -57,8 +57,8 @@
 
         <p:dialog header="Sure to delete" widgetVar="delete" minHeight="50">
             <h:form id="deleteTermMetaData">
-                <p:commandButton styleClass="red-button" update=":msgdialog" oncomplete="PF('bui').show();PF('delete').hide()" value="Delete" action="#{termInstanceList.deleteTermMetaData()}">
-                    <f:setPropertyActionListener value="#{termInstanceList.selectedMetaData}" target="#{termInstanceList.selectedMetaData}" />
+                <p:commandButton styleClass="red-button" update=":msgdialog" oncomplete="PF('bui').show();PF('delete').hide()" value="Delete" action="#{networkStatsList.deleteNetworkStats()}">
+                    <f:setPropertyActionListener value="#{networkStatsList.selectedMetaData}" target="#{networkStatsList.selectedMetaData}" />
                 </p:commandButton>
             </h:form>
         </p:dialog>
@@ -71,9 +71,9 @@
 
         <p:dialog  widgetVar="termInstanceDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" width="50%">
             <p:outputPanel id="termInstanceDetail" >
-                <p:dataTable var="metaKey" value="#{termInstanceList.instanceMetaKeys}">
+                <p:dataTable var="metaKey" value="#{networkStatsList.instanceMetaKeys}">
                     <p:column  headerText="Label">#{metaKey.label}</p:column>
-                    <p:column  headerText="Value">#{termInstanceList.selectedMetaData[metaKey.metaKey]}</p:column>
+                    <p:column  headerText="Value">#{networkStatsList.selectedMetaData[metaKey.metaKey]}</p:column>
                 </p:dataTable>
             </p:outputPanel>
         </p:dialog>
