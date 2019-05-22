@@ -980,7 +980,12 @@
                     <value>#{edgeListList.selectedMetaData['termInstanceSlug']}</value>  
                 </view-param>  
             </redirect>  
-        </navigation-case>                
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>UploadGraphFile</from-outcome>
+            <to-view-id>/cms/Graph/UploadGraphFile.xhtml</to-view-id>
+            <redirect /> 
+        </navigation-case>               
     </navigation-rule> 
     <!--    Navigation cases for  Import VG Edges List-->
     <navigation-rule>
@@ -1040,7 +1045,7 @@
             </redirect>   
         </navigation-case>        
     </navigation-rule>  
-<!--    Navigation cases for  Network Stats Options -->
+<!--    Navigation cases for  Network Stats List -->
     <navigation-rule>
         <from-view-id>/cms/Graph/NetworkStatsList.xhtml</from-view-id>
         <navigation-case>
