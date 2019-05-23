@@ -1010,7 +1010,22 @@
                 </view-param>  
             </redirect>   
         </navigation-case>        
-    </navigation-rule> 
+    </navigation-rule>
+    <!--    Navigation cases for  Import VG Edges List-->
+    <navigation-rule>
+        <from-view-id>/cms/Graph/UploadGraphFile.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>EdgeListList</from-outcome>
+            <to-view-id>/cms/Graph/EdgeListList.xhtml</to-view-id>
+            <redirect include-view-params="true">  
+                <view-param>  
+                    <name>termslug</name>  
+                    <value>#{uploadGraphFile.graphTermSlug}</value>  
+                </view-param>  
+            </redirect>   
+        </navigation-case> 
+        
+    </navigation-rule>      
 <!--    Navigation cases for  Network Stats Options -->
     <navigation-rule>
         <from-view-id>/cms/Graph/NetworkStatsOptions.xhtml</from-view-id>

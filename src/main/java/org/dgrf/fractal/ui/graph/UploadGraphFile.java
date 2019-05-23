@@ -43,6 +43,8 @@ import org.primefaces.model.UploadedFile;
 public class UploadGraphFile implements Serializable{
     private String tempFilePath;
     private boolean fileUploaded;
+    private String graphTermSlug = FractalConstants.TERM_SLUG_GRAPH;
+    private String graphName;
     /**
      * Creates a new instance of UploadGraphFile
      */
@@ -127,4 +129,21 @@ public class UploadGraphFile implements Serializable{
 
 
     }
+
+    public String getGraphTermSlug() {
+        return graphTermSlug;
+    }
+
+    public void setGraphTermSlug(String graphTermSlug) {
+        this.graphTermSlug = graphTermSlug;
+    }
+
+    public String getGraphName() {
+        return graphName;
+    }
+
+    public void setGraphName(String graphName) {
+        this.graphName = graphName;
+    }
+    
 }

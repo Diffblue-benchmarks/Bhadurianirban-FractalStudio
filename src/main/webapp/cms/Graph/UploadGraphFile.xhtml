@@ -9,7 +9,7 @@
 
 
     <ui:define name="content">
-        
+
         <div class="card">
             <h1>Add Graph</h1>
         </div>
@@ -18,7 +18,11 @@
             <br />
             <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
             <p:panelGrid   columns="2" layout="grid" >
-                
+
+
+                <h:outputText value="Name" />
+                <p:inputText value="#{uploadGraphFile.graphName}" required="true"></p:inputText>
+                <h:outputText value="Name" />
                 <p:fileUpload id="datacsv" required="true" styleClass="black-button" 
                               allowTypes="/(\.|\/)(csv)$/" mode="advanced" multiple="false"  
                               fileLimit="1" label="Data" update="growl" sizeLimit="5800000"
